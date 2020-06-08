@@ -7,9 +7,10 @@ plugins {
 
 group = 'com.analuciabolico'
 version = '0.0.1'
-sourceCompatibility = JavaVersion.VERSION_14
-targetCompatibility = JavaVersion.VERSION_14
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
 compileJava.options.encoding = 'UTF-8'
+String mainClass = 'com.analuciabolico.file.Application'
 
 repositories {
     mavenCentral()
@@ -21,7 +22,7 @@ ext {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'org.springframework.boot:spring-boot-starter'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
@@ -48,4 +49,10 @@ test {
 asciidoctor {
     inputs.dir snippetsDir
     dependsOn test
+}
+
+task run(type: JavaExec) {
+    main = mainClass
+    standardInput = System.in
+    classpath = sourceSets.main.runtimeClasspath
 }
