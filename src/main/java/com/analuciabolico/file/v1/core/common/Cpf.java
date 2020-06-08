@@ -1,5 +1,7 @@
 package com.analuciabolico.file.v1.core.common;
 
-public class Cpf {
+import java.io.Serializable;
+
+public class Cpf implements Serializable {
 
 }

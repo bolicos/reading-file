@@ -11,8 +11,10 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class File implements Serializable {
+public class Item implements Serializable {
 
-
+    private Long id;
+    private Integer quantity;
+    private Double price;
 
 }
