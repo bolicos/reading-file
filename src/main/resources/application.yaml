@@ -1,0 +1,13 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    banner-mode: off
+  application:
+    name: reading-file
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
