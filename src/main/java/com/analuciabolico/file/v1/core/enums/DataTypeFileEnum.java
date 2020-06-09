@@ -5,9 +5,10 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum AssociatedVoteApiEnum {
-    ABLE_TO_VOTE("Able to vote"),
-    UNABLE_TO_VOTE("Unable to vote");
+public enum DataTypeFileEnum {
+    SALESMAN("0001"),
+    CUSTOMER("002"),
+    SALE("003");
 
     String key;
 }
