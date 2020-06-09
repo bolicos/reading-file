@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class Customer implements Serializable {
 
     private String name;
-    private Cpf cnpj;
+    private String cnpj;
     private Double businessArea;
 
 }

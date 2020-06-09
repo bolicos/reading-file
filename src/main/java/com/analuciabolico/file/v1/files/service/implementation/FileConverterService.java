@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,7 @@ import java.util.Scanner;
 
 import static com.analuciabolico.file.v1.core.validation.GenericMessagesValidationEnum.FILE_NOT_FOUND_EXCEPTION;
 import static com.analuciabolico.file.v1.core.validation.MessageValidationProperties.getMessage;
+import static java.lang.Double.parseDouble;
 
 @Slf4j
 @Service
@@ -56,6 +58,18 @@ public class FileConverterService implements IFileConverterService {
 
     private List<Customer> getCustomers(List<String> text) {
         List<Customer> customerList = new ArrayList<>();
+        if (text.isEmpty()) {
+            return customerList;
+        } else {
+            text.forEach(line -> {
+                List<String> columns = Arrays.asList(line.split("ç"));
+                customerList.add(
+                        new Customer(columns.get(2), columns.get(1), parseDouble(columns.get(3)))
+                );
+            });
+
+        }
+
         return null;
     }
 
