@@ -1,6 +1,5 @@
 package com.analuciabolico.file.v1.files.model;
 
-import com.analuciabolico.file.v1.core.common.Cpf;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +14,7 @@ import java.io.Serializable;
 public class Customer implements Serializable {
 
     private String name;
-    private Cpf cnpj;
-    private Double businessArea;
+    private String cnpj;
+    private String businessArea;
 
 }
