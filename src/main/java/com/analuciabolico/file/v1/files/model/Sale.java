@@ -16,6 +16,6 @@ public class Sale implements Serializable {
 
     private Long id;
     private List<Item> items;
-    private Salesman salesman;
+    private String salesman;
 
 }

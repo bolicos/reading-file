@@ -4,6 +4,7 @@ import com.analuciabolico.file.v1.core.enums.DataTypeFileEnum;
 import com.analuciabolico.file.v1.core.model.FileData;
 import com.analuciabolico.file.v1.core.services.PathsService;
 import com.analuciabolico.file.v1.files.model.Customer;
+import com.analuciabolico.file.v1.files.model.Item;
 import com.analuciabolico.file.v1.files.model.Sale;
 import com.analuciabolico.file.v1.files.model.Salesman;
 import com.analuciabolico.file.v1.files.service.interfaces.IFileConverterService;
@@ -22,6 +23,8 @@ import java.util.Scanner;
 import static com.analuciabolico.file.v1.core.validation.GenericMessagesValidationEnum.FILE_NOT_FOUND_EXCEPTION;
 import static com.analuciabolico.file.v1.core.validation.MessageValidationProperties.getMessage;
 import static java.lang.Double.parseDouble;
+import static java.lang.Integer.parseInt;
+import static java.lang.Long.parseLong;
 
 @Slf4j
 @Service
@@ -37,6 +40,7 @@ public class FileConverterService implements IFileConverterService {
     Map<String, FileData> files = new HashMap<>();
 
     filesNames.forEach(name -> files.put(name, this.getFileData(name)));
+
     }
 
     private FileData getFileData(String name) {
@@ -47,13 +51,18 @@ public class FileConverterService implements IFileConverterService {
         } catch (FileNotFoundException exception) {
            log.warn(getMessage(FILE_NOT_FOUND_EXCEPTION));
         }
-        return file == null ?
-                new FileData() :
-                new FileData(
-                        this.getCustomers(getDataFilterByType(file, DataTypeFileEnum.CUSTOMER)),
-                        this.getSalespeople(getDataFilterByType(file, DataTypeFileEnum.SALESMAN)),
-                        this.getSales(getDataFilterByType(file, DataTypeFileEnum.SALE))
-                );
+
+        if (file == null) {
+            return new FileData();
+        } else {
+            Map<DataTypeFileEnum, List<String>> map = getDataFilterByType(file);
+            file.close();
+            return new FileData(
+                    this.getCustomers(map.get(DataTypeFileEnum.CUSTOMER)),
+                    this.getSalespeople(map.get(DataTypeFileEnum.SALESMAN)),
+                    this.getSales(map.get(DataTypeFileEnum.SALE))
+            );
+        }
     }
 
     private List<Customer> getCustomers(List<String> text) {
@@ -64,30 +73,76 @@ public class FileConverterService implements IFileConverterService {
             text.forEach(line -> {
                 List<String> columns = Arrays.asList(line.split("ç"));
                 customerList.add(
-                        new Customer(columns.get(2), columns.get(1), parseDouble(columns.get(3)))
+                        new Customer(columns.get(2), columns.get(1), columns.get(3))
                 );
             });
-
         }
-
-        return null;
+        return customerList;
     }
 
     private List<Salesman> getSalespeople(List<String> text) {
-        return null;
+        List<Salesman> salesmenList = new ArrayList<>();
+        if (text.isEmpty()) {
+            return salesmenList;
+        } else {
+            text.forEach(line -> {
+                List<String> columns = Arrays.asList(line.split("ç"));
+                salesmenList.add(
+                        new Salesman(columns.get(2), columns.get(1), parseDouble(columns.get(3)))
+                );
+            });
+        }
+        return salesmenList;
     }
 
     private List<Sale> getSales(List<String> text) {
-        return null;
+        List<Sale> saleList = new ArrayList<>();
+        if (text.isEmpty()) {
+            return saleList;
+        } else {
+            text.forEach(line -> {
+                List<String> columns = Arrays.asList(line.split("ç"));
+                saleList.add(
+                        new Sale(parseLong(columns.get(1)), getItems(columns.get(2)), columns.get(3))
+                );
+            });
+        }
+        return saleList;
     }
 
-    private List<String> getDataFilterByType(Scanner text, DataTypeFileEnum dataTypeFileEnum) {
-        List<String> list = new ArrayList<>();
+    private List<Item> getItems(String text) {
+        List<Item> itemList = new ArrayList<>();
+        if (text.isEmpty()) {
+            return itemList;
+        } else {
+            text = text.replace("[", "");
+            text = text.replace("]", "");
+            List<String> items = Arrays.asList(text.split(","));
+            items.forEach(item -> {
+                List<String> columns = Arrays.asList(item.split("-"));
+                itemList.add(new Item(
+                        parseLong(columns.get(0)),
+                        parseInt(columns.get(1)),
+                        parseDouble(columns.get(2))
+                        )
+                );
+            });
+        }
+        return itemList;
+    }
+
+    private Map<DataTypeFileEnum, List<String>> getDataFilterByType(Scanner text) {
+        Map<DataTypeFileEnum, List<String>> data = new HashMap<>();
+        data.put(DataTypeFileEnum.SALESMAN, new ArrayList<>());
+        data.put(DataTypeFileEnum.CUSTOMER, new ArrayList<>());
+        data.put(DataTypeFileEnum.SALE, new ArrayList<>());
+
         while(text.hasNextLine()){
             String line = text.nextLine();
-            if(line.startsWith(dataTypeFileEnum.getKey())) list.add(line);
+            data = DataTypeFileEnum.verifyLine(line, data);
         }
-        return list;
+        text.close();
+        return data;
     }
 
 }
