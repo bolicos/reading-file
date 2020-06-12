@@ -14,7 +14,7 @@ Este projeto tem a finalidade de análise de dados, onde o sistema deve importar
 
 O que você precisa para instalar o software e como instalá-lo:
 
-- [Java 14](https://computingforgeeks.com/install-oracle-java-openjdk-14-on-ubuntu-debian-linux/)
+- [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 - Gradle 6.3
 - [Git SCM](https://git-scm.com/download/linux)
 

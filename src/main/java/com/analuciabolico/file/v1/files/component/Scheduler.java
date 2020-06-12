@@ -30,7 +30,7 @@ public class Scheduler {
 
     @Scheduled(fixedRate = 10000)
     public void checkerFiles() {
-        File folder = new File(environment.getPathAbsolute());
+        File folder = new File(environment.getPathAbsoluteInput());
         FilenameFilter filter = (dir, name) -> name.endsWith(".dat");
         String[] arrayFiles = folder.list(filter);
 
