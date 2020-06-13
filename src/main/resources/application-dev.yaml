@@ -1,0 +1,9 @@
+directory:
+  linux:
+    variable: HOME
+  windows:
+    variable: HOMEPATH
+  input:
+    name: /data/in
+  output:
+    name: /data/out
