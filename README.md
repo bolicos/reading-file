@@ -37,7 +37,7 @@ cd ./reading-file
 
 3. Dentro da pasta do projeto rode este comando para iniciar a aplicação:
 ```sh
-./gradlew bootRun
+./gradlew bootRun --args='--spring.profiles.active=dev'
 ```
 
 ## E para rodar os testes, siga estes passos
