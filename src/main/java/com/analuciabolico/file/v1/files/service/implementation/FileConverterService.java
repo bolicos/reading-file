@@ -48,7 +48,7 @@ public class FileConverterService implements IFileConverterService {
     saveFileService.saveDataToFile(files);
     }
 
-    private FileData getFileData(String name) {
+    public FileData getFileData(String name) {
         Scanner file = null;
         try {
             String filePath = this.environment.formatNameFile(name, TypeFileEnum.DAT);
@@ -70,7 +70,7 @@ public class FileConverterService implements IFileConverterService {
         }
     }
 
-    private List<Customer> getCustomers(List<String> text) {
+    public List<Customer> getCustomers(List<String> text) {
         List<Customer> customerList = new ArrayList<>();
         if (text.isEmpty()) {
             return customerList;
@@ -85,7 +85,7 @@ public class FileConverterService implements IFileConverterService {
         return customerList;
     }
 
-    private List<Salesman> getSalespeople(List<String> text) {
+    public List<Salesman> getSalespeople(List<String> text) {
         List<Salesman> salesmenList = new ArrayList<>();
         if (text.isEmpty()) {
             return salesmenList;
@@ -100,7 +100,7 @@ public class FileConverterService implements IFileConverterService {
         return salesmenList;
     }
 
-    private List<Sale> getSales(List<String> text) {
+    public List<Sale> getSales(List<String> text) {
         List<Sale> saleList = new ArrayList<>();
         if (text.isEmpty()) {
             return saleList;
@@ -115,7 +115,7 @@ public class FileConverterService implements IFileConverterService {
         return saleList;
     }
 
-    private List<Item> getItems(String text) {
+    public List<Item> getItems(String text) {
         List<Item> itemList = new ArrayList<>();
         if (text.isEmpty()) {
             return itemList;
@@ -136,7 +136,7 @@ public class FileConverterService implements IFileConverterService {
         return itemList;
     }
 
-    private Map<DataTypeFileEnum, List<String>> getDataFilterByType(Scanner text) {
+    public Map<DataTypeFileEnum, List<String>> getDataFilterByType(Scanner text) {
         Map<DataTypeFileEnum, List<String>> data = new HashMap<>();
         data.put(DataTypeFileEnum.SALESMAN, new ArrayList<>());
         data.put(DataTypeFileEnum.CUSTOMER, new ArrayList<>());

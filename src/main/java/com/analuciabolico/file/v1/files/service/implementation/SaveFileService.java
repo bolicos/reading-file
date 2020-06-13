@@ -16,7 +16,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,7 +70,7 @@ public class SaveFileService implements ISaveFileService {
         });
     }
 
-    private List<String> calculateReportData(FileData fileData) {
+    public List<String> calculateReportData(FileData fileData) {
         String summary = String.format(SUMMARY_SPACING, MessagesOutputEnum.SUMMARY);
         String numberOfCustomers = String.format(TITLE_AND_RESPONSE_SPACING,
                 MessagesOutputEnum.QUANTITY_CUSTOMERS.getKey(),
@@ -93,15 +92,15 @@ public class SaveFileService implements ISaveFileService {
         return List.of(summary, numberOfCustomers, numberOfSellers, mostExpensiveSale, worstSeller);
     }
 
-    private String numberOfCustomers(List<Customer> customers) {
+    public String numberOfCustomers(List<Customer> customers) {
         return String.valueOf(customers.size());
     }
 
-    private String numberOfSellers(List<Salesman> salespeople) {
+    public String numberOfSellers(List<Salesman> salespeople) {
         return String.valueOf(salespeople.size());
     }
 
-    private List<String> mostExpensiveSale(List<Sale> sales) {
+    public List<String> mostExpensiveSale(List<Sale> sales) {
         Map<Long, Double> salesValues = new HashMap<>();
         sales.forEach(sale -> {
             Double value = sale.getItems().stream().mapToDouble(Item::total).sum();
@@ -118,10 +117,9 @@ public class SaveFileService implements ISaveFileService {
                         .map(Map.Entry::getKey)
                         .map(String::valueOf)
                         .collect(Collectors.toList());
-
     }
 
-    private List<String> worstSeller(List<Salesman> salespeople, List<Sale> sales) {
+    public List<String> worstSeller(List<Salesman> salespeople, List<Sale> sales) {
         Map<String, Integer> sellers = new HashMap<>();
         salespeople.forEach(salesman -> {
             Integer value = Math.toIntExact(sales.stream().filter(sale ->
