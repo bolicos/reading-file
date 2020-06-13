@@ -6,10 +6,11 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum MessagesOutputEnum {
-    QUANTITY_CUSTOMERS("Quantidade de clientes no arquivo de entrada:"),
-    QUANTITY_SELLERS("Quantidade de vendedores no arquivo de entrada:"),
-    MOST_EXPENSIVE_SALE("ID da venda mais cara:"),
-    WORST_SELLER("O pior vendedor:");
+    SUMMARY("SUMMARY"),
+    QUANTITY_CUSTOMERS("Number of customers:"),
+    QUANTITY_SELLERS("Number of sellers:"),
+    MOST_EXPENSIVE_SALE("Most expensive sales IDs:"),
+    WORST_SELLER("Name of the worst salespeople:");
 
     String key;
 }
