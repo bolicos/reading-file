@@ -17,4 +17,8 @@ public class Item implements Serializable {
     private Integer quantity;
     private Double price;
 
+    public Double total() {
+        return this.price * this.quantity;
+    }
+
 }

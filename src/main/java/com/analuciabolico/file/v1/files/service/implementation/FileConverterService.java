@@ -1,6 +1,7 @@
 package com.analuciabolico.file.v1.files.service.implementation;
 
 import com.analuciabolico.file.v1.core.enums.DataTypeFileEnum;
+import com.analuciabolico.file.v1.core.enums.TypeFileEnum;
 import com.analuciabolico.file.v1.core.model.FileData;
 import com.analuciabolico.file.v1.core.services.PathsService;
 import com.analuciabolico.file.v1.files.model.Customer;
@@ -8,6 +9,7 @@ import com.analuciabolico.file.v1.files.model.Item;
 import com.analuciabolico.file.v1.files.model.Sale;
 import com.analuciabolico.file.v1.files.model.Salesman;
 import com.analuciabolico.file.v1.files.service.interfaces.IFileConverterService;
+import com.analuciabolico.file.v1.files.service.interfaces.ISaveFileService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -31,9 +33,11 @@ import static java.lang.Long.parseLong;
 public class FileConverterService implements IFileConverterService {
 
     private final PathsService environment;
+    private final ISaveFileService saveFileService;
 
-    public FileConverterService(PathsService environment) {
+    public FileConverterService(PathsService environment, ISaveFileService saveFileService) {
         this.environment = environment;
+        this.saveFileService = saveFileService;
     }
 
     public void generateReport(List<String> filesNames) {
@@ -41,12 +45,13 @@ public class FileConverterService implements IFileConverterService {
 
     filesNames.forEach(name -> files.put(name, this.getFileData(name)));
 
+    saveFileService.saveDataToFile(files);
     }
 
     private FileData getFileData(String name) {
         Scanner file = null;
         try {
-            String filePath = String.format("%s/%s", environment.getPathAbsolute(), name);
+            String filePath = this.environment.formatNameFile(name, TypeFileEnum.DAT);
             file = new Scanner(new File(filePath));
         } catch (FileNotFoundException exception) {
            log.warn(getMessage(FILE_NOT_FOUND_EXCEPTION));

@@ -1,5 +1,6 @@
 package com.analuciabolico.file.v1.files.component;
 
+import com.analuciabolico.file.v1.core.enums.TypeFileEnum;
 import com.analuciabolico.file.v1.core.services.PathsService;
 import com.analuciabolico.file.v1.files.service.interfaces.IFileConverterService;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.analuciabolico.file.v1.core.common.Constants.READING_ARCHIVE;
 import static com.analuciabolico.file.v1.core.validation.GenericMessagesValidationEnum.DIRECTORY_EMPTY;
 import static com.analuciabolico.file.v1.core.validation.MessageValidationProperties.getMessage;
 
@@ -30,8 +32,8 @@ public class Scheduler {
 
     @Scheduled(fixedRate = 10000)
     public void checkerFiles() {
-        File folder = new File(environment.getPathAbsolute());
-        FilenameFilter filter = (dir, name) -> name.endsWith(".dat");
+        File folder = new File(environment.getPathAbsoluteInput());
+        FilenameFilter filter = (dir, name) -> name.endsWith(TypeFileEnum.DAT.getKey());
         String[] arrayFiles = folder.list(filter);
 
         List<String> files = arrayFiles == null ? Collections.emptyList() : Arrays.asList(arrayFiles);
@@ -44,7 +46,7 @@ public class Scheduler {
     }
 
     private boolean validateConversion(String file) {
-        log.info(file);
+        log.info(READING_ARCHIVE + file);
         return true;
     }
 }
