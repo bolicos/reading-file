@@ -1,6 +1,6 @@
 package com.analuciabolico.file.v1.files.component;
 
-import com.analuciabolico.file.v1.core.BaseUnityTest;
+import com.analuciabolico.file.v1.BaseUnityTest;
 import com.analuciabolico.file.v1.core.enums.TypeFileEnum;
 import com.analuciabolico.file.v1.core.services.PathsService;
 import org.junit.jupiter.api.Disabled;

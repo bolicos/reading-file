@@ -1,6 +1,6 @@
 package com.analuciabolico.file.v1.files.service.implementation;
 
-import com.analuciabolico.file.v1.core.BaseUnityTest;
+import com.analuciabolico.file.v1.BaseUnityTest;
 import com.analuciabolico.file.v1.core.enums.DataTypeFileEnum;
 import com.analuciabolico.file.v1.core.model.FileData;
 import com.analuciabolico.file.v1.core.services.PathsService;
@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import static com.analuciabolico.file.v1.core.Constants.*;
+import static com.analuciabolico.file.v1.Constants.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;

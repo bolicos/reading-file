@@ -1,6 +1,6 @@
 package com.analuciabolico.file.v1.files.service.implementation;
 
-import com.analuciabolico.file.v1.core.BaseUnityTest;
+import com.analuciabolico.file.v1.BaseUnityTest;
 import com.analuciabolico.file.v1.core.services.PathsService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,11 +10,11 @@ import org.mockito.Mock;
 import java.util.Collections;
 import java.util.List;
 
-import static com.analuciabolico.file.v1.core.Constants.MOST_EXPENSIVE_SALE_MESSAGE;
-import static com.analuciabolico.file.v1.core.Constants.NUMBER_OF_CUSTOMERS_MESSAGE;
-import static com.analuciabolico.file.v1.core.Constants.NUMBER_OF_SELLERS_MESSAGE;
-import static com.analuciabolico.file.v1.core.Constants.SUMMARY_MESSAGE;
-import static com.analuciabolico.file.v1.core.Constants.WORST_SELLER_MESSAGE;
+import static com.analuciabolico.file.v1.Constants.MOST_EXPENSIVE_SALE_MESSAGE;
+import static com.analuciabolico.file.v1.Constants.NUMBER_OF_CUSTOMERS_MESSAGE;
+import static com.analuciabolico.file.v1.Constants.NUMBER_OF_SELLERS_MESSAGE;
+import static com.analuciabolico.file.v1.Constants.SUMMARY_MESSAGE;
+import static com.analuciabolico.file.v1.Constants.WORST_SELLER_MESSAGE;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

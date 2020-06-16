@@ -1,4 +1,4 @@
-package com.analuciabolico.file.v1.core;
+package com.analuciabolico.file.v1;
 
 import com.analuciabolico.file.v1.files.model.Customer;
 import com.analuciabolico.file.v1.files.model.Item;
