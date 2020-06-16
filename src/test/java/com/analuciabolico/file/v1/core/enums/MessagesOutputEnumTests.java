@@ -1,6 +1,6 @@
 package com.analuciabolico.file.v1.core.enums;
 
-import com.analuciabolico.file.v1.core.BaseUnityTest;
+import com.analuciabolico.file.v1.BaseUnityTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

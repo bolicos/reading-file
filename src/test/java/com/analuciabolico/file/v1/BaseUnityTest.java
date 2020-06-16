@@ -1,4 +1,4 @@
-package com.analuciabolico.file.v1.core;
+package com.analuciabolico.file.v1;
 
 import com.analuciabolico.file.v1.core.enums.DataTypeFileEnum;
 import com.analuciabolico.file.v1.core.model.FileData;
@@ -18,8 +18,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import static com.analuciabolico.file.v1.core.Constants.*;
-import static com.analuciabolico.file.v1.core.Tags.RUN_FAST;
+import static com.analuciabolico.file.v1.Constants.*;
+import static com.analuciabolico.file.v1.Tags.RUN_FAST;
 
 @Tag(RUN_FAST)
 @ActiveProfiles("test")
