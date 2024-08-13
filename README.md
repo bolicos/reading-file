@@ -8,7 +8,7 @@ Este projeto tem a finalidade de análise de dados, onde o sistema deve importar
 
 ----
 
-![Java CI with Gradle](https://github.com/bolicos/reading-file/workflows/Java%20CI%20with%20Gradle/badge.svg) <img src='https://img.shields.io/github/tag/bolicos/reading-file.svg' alt='latest semver version' /> <img src='https://img.shields.io/github/issues/bolicos/reading-file.svg' alt='open issues badge' /> <img src='https://img.shields.io/github/issues-pr/bolicos/reading-file.svg' alt='open pull requests badge' />
+![Java CI with Gradle](https://github.com/bolicos/reading-file/workflows/pipeline/badge.svg) <img src='https://img.shields.io/github/tag/bolicos/reading-file.svg' alt='latest semver version' /> <img src='https://img.shields.io/github/issues/bolicos/reading-file.svg' alt='open issues badge' /> <img src='https://img.shields.io/github/issues-pr/bolicos/reading-file.svg' alt='open pull requests badge' />
 
 ## Dependências
 
