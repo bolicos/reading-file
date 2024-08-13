@@ -8,7 +8,7 @@ Este projeto tem a finalidade de análise de dados, onde o sistema deve importar
 
 ----
 
-![Java CI with Gradle](https://github.com/analuciabolico/reading-file/workflows/Java%20CI%20with%20Gradle/badge.svg) <img src='https://img.shields.io/github/tag/analuciabolico/reading-file.svg' alt='latest semver version' /> <img src='https://img.shields.io/github/issues/analuciabolico/reading-file.svg' alt='open issues badge' /> <img src='https://img.shields.io/github/issues-pr/analuciabolico/reading-file.svg' alt='open pull requests badge' />
+![Java CI with Gradle](https://github.com/bolicos/reading-file/workflows/Java%20CI%20with%20Gradle/badge.svg) <img src='https://img.shields.io/github/tag/bolicos/reading-file.svg' alt='latest semver version' /> <img src='https://img.shields.io/github/issues/bolicos/reading-file.svg' alt='open issues badge' /> <img src='https://img.shields.io/github/issues-pr/bolicos/reading-file.svg' alt='open pull requests badge' />
 
 ## Dependências
 
@@ -27,7 +27,7 @@ O que você precisa para instalar o software e como instalá-lo:
 
 1. Abra um terminal e rode este comando para baixar o projeto:
 ```sh
-git clone https://github.com/analuciabolico/reading-file.git
+git clone https://github.com/bolicos/reading-file.git
 ```
 
 2. Entre na pasta do projeto:
@@ -56,11 +56,11 @@ A wiki contem informações sobre:
 
 Entre outras coisas, segue link para Home:
 
-- [Wiki](https://github.com/analuciabolico/reading-file/wiki/Home)
+- [Wiki](https://github.com/bolicos/reading-file/wiki/Home)
 
 ----
 
-## Autora
+## Autor
 
-* **Ana Lúcia Bolico** - [GitHub](https://github.com/analuciabolico)
+* **Bolicos** - [GitHub](https://github.com/bolicos)
 
